@@ -78,11 +78,13 @@ Sysmon was subsequently downloaded and configured on the ART Workstation, after 
 
 Following the correction of the endpoint telemetry configuration, Wazuh successfully generated a **High-severity security alert** after the Atomic Red Team test was rerun.
 
-[Insert Wazuh alert screenshot here]
-
 The alert demonstrated that endpoint telemetry was successfully reaching Wazuh after the logging configuration was corrected.
 
 However, the available alert information does **not conclusively establish that the alert represented detection of T1007 — System Service Discovery**. Additional examination of the alert details, underlying event data, and associated detection rule would be necessary to confirm the specific technique represented by the alert.
+
+## Evidence Limitations
+
+No screenshot or saved alert record was retained from this experiment. The results described in this investigation are based on observations made during the original lab exercise.
 
 ## MITRE ATT&CK Mapping
 
