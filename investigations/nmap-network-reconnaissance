@@ -52,11 +52,15 @@ Sysmon had not been properly downloaded and configured on the ART Workstation, r
 
 After identifying and correcting the Sysmon/logging configuration issue, the relevant experiment was rerun.
 
-Detection
+##Detection
 
 Following correction of the endpoint logging configuration, the experiment was rerun and a Wazuh alert was observed. However, no screenshot or other saved evidence of the alert was retained for this investigation.
 
-As a result, the specific contents, severity, and detection rule associated with the alert cannot be independently verified. The experiment therefore demonstrates that an alert was observed during testing, but does not provide sufficient evidence to determine whether Wazuh specifically detected the Nmap activity.
+As a result, the specific contents, severity, and detection rule associated with the alert cannot be independently verified.The experiment therefore demonstrates that an alert was observed during testing, but does not provide sufficient evidence to determine whether Wazuh specifically detected the Nmap activity.
+
+## Evidence Limitations
+
+No screenshot or saved alert record was retained from this experiment. The results described in this investigation are based on observations made during the original lab exercise.
 
 ## Defensive Perspective
 
