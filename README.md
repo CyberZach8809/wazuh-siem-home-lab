@@ -31,6 +31,16 @@ The lab consists of a Wazuh SIEM environment used to collect and analyze securit
 - **Wazuh Agent** — Collects and forwards endpoint telemetry to the Wazuh Manager.
 - **Atomic Red Team** — Used to simulate specific MITRE ATT&CK techniques in a controlled environment.
 
+## Investigations
+
+This section documents the security testing and investigations conducted within the lab environment.
+
+| Investigation | Technique / Activity | Focus |
+|---|---|---|
+| [T1003.1 — LSASS Memory](investigations/t1003.1-lsass-memory.md) | MITRE ATT&CK T1003.1 | Credential Access |
+| [T1007 — System Service Discovery](investigations/t1007-system-service-discovery.md) | MITRE ATT&CK T1007 | Discovery |
+| [Nmap Network Reconnaissance](investigations/nmap-network-reconnaissance.md) | Network Reconnaissance | Network Monitoring |
+
 ## Experiments
 
 ### Experiment 1 — Credential Access
