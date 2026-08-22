@@ -79,16 +79,14 @@ This highlighted the importance of validating log collection and endpoint teleme
 
 ## Skills Demonstrated
 
-- SIEM configuration
-- Security event monitoring
-- Log analysis
-- Endpoint telemetry
-- Windows security monitoring
-- Atomic Red Team
-- MITRE ATT&CK
-- Network reconnaissance detection
-- Basic incident investigation
-- Troubleshooting
+- **SIEM:** Wazuh configuration, alert monitoring, and security event analysis
+- **Endpoint Security:** Windows telemetry and Sysmon configuration
+- **Security Testing:** Atomic Red Team
+- **MITRE ATT&CK:** T1003.1 and T1007
+- **Network Security:** Nmap and network reconnaissance
+- **Detection Validation:** Testing telemetry collection and investigating alert generation
+- **Troubleshooting:** Identifying and correcting endpoint logging/telemetry issues
+- **Documentation:** Security investigation reports and technical findings
 
 ## Future Improvements
 
