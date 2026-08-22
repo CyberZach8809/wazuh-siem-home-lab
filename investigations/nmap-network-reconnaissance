@@ -1,0 +1,86 @@
+# Nmap Network Reconnaissance Investigation
+
+## Overview
+
+This investigation documents a controlled network reconnaissance exercise performed within the Wazuh SIEM home lab. Nmap was used from the Wazuh Manager device to probe the Observer/Kali Linux device and evaluate whether the resulting network activity could be observed through the security monitoring environment.
+
+The experiment also provided an opportunity to validate endpoint telemetry and troubleshoot the logging configuration used throughout the lab.
+
+## Objective
+
+The objectives of this experiment were to:
+
+* Use Nmap to perform network reconnaissance within the lab environment.
+* Identify whether the target host was active and accessible.
+* Investigate network activity from a defensive monitoring perspective.
+* Validate whether the Wazuh environment could receive relevant telemetry.
+* Identify and resolve any logging or telemetry issues encountered during testing.
+
+## Environment
+
+* **SIEM:** Wazuh
+* **Scanning Device:** Wazuh Manager
+* **Target:** Observer/Kali Linux device
+* **Network Scanning Tool:** Nmap
+* **Target IP:** `10.170.0.20`
+
+## Test Procedure
+
+Nmap was executed from the Wazuh Manager device against the Observer/Kali Linux device.
+
+The command used was:
+
+```bash
+nmap -PE 10.170.0.20
+```
+
+The `-PE` option instructs Nmap to use ICMP Echo requests for host discovery.
+
+The broader objective of the exercise was to investigate network exposure, including open ports and running services. However, the specific command documented above was focused on determining whether the target host was active rather than performing a port or service enumeration.
+
+## Initial Results
+
+The initial execution did not produce the expected observable results within Wazuh.
+
+As with the previous experiments, this prompted an investigation into the lab's logging and telemetry configuration rather than assuming that the network activity itself had failed.
+
+## Troubleshooting
+
+The issue was traced to the endpoint logging configuration.
+
+Sysmon had not been properly downloaded and configured on the ART Workstation, resulting in insufficient telemetry being available within Wazuh.
+
+After identifying and correcting the Sysmon/logging configuration issue, the relevant experiment was rerun.
+
+Detection
+
+Following correction of the endpoint logging configuration, the experiment was rerun and a Wazuh alert was observed. However, no screenshot or other saved evidence of the alert was retained for this investigation.
+
+As a result, the specific contents, severity, and detection rule associated with the alert cannot be independently verified. The experiment therefore demonstrates that an alert was observed during testing, but does not provide sufficient evidence to determine whether Wazuh specifically detected the Nmap activity.
+
+## Defensive Perspective
+
+Network reconnaissance can provide an attacker with information about systems and services available within an environment.
+
+From a defensive perspective, monitoring reconnaissance activity can help identify potentially suspicious behavior before an attacker progresses to later stages of an intrusion.
+
+In a production environment, security teams may correlate network activity with other telemetry to determine whether scanning represents legitimate administrative activity or potentially malicious reconnaissance.
+
+## Lessons Learned
+
+The primary lesson from this experiment was the importance of properly configured telemetry when attempting to monitor security activity.
+
+The initial absence of expected Wazuh data was not necessarily evidence that the network activity had gone undetected. Instead, it demonstrated that the monitoring environment itself needed to be validated before conclusions could be drawn from the absence of alerts.
+
+After correcting the logging configuration, the expected Wazuh alert was generated.
+
+This reinforced the importance of validating logging, telemetry collection, and detection capabilities before relying on a monitoring environment in a production setting.
+
+## Key Takeaways
+
+* Nmap can be used to conduct controlled network reconnaissance.
+* The `-PE` option performs ICMP-based host discovery.
+* SIEM visibility depends on properly configured telemetry.
+* The absence of an alert does not necessarily mean that activity did not occur.
+* Detection testing should include validation of the underlying logging and collection pipeline.
+* Network activity should be evaluated in context and correlated with other available security telemetry.
